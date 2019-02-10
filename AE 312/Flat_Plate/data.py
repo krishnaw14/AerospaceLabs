@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np 
 import matplotlib.pyplot as plt 
 from linear_interpolate import linear_interpolate, k_value_linear_interpolate
+# linear interpolate.py exists in the same directory and is code written for piecewise linear interpolation 
+# of blasisus velocity ratios and K values. 
 
 import warnings
 warnings.filterwarnings("ignore")
