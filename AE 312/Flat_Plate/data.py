@@ -10,6 +10,7 @@ warnings.filterwarnings("ignore")
 data_path = "Flat Plate/"
 calculated_data_path = "Calculated Data/"
 
+
 visc = 1.832e-5
 rho = 1.189
 nu = visc/rho
@@ -26,6 +27,9 @@ base_k_values = base_profile["Kb"]
 base_eta_values = base_profile["eta"]
 
 for data_file_name in sorted(os.listdir(data_path)):
+
+	if data_file_name == ".DS_Store":
+		continue
 	print(data_file_name)
 	data = pd.read_csv(data_path + data_file_name)
 
@@ -74,7 +78,7 @@ for data_file_name in sorted(os.listdir(data_path)):
 
 	data["Interpolated K Values"] = pd.Series(interpolated_k_values.astype(float).round(5), index=data.index)
 
-	plt.scatter(data["U/Uinf"]*interpolated_k_values, data["eta"], s = 5, cmap = "summer")
+	plt.scatter(data["U/Uinf"], data["eta"], s = 5, cmap = "summer")
 
 	data.to_csv(calculated_data_path + data_file_name)
 
